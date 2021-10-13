@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import userRouter from "./routes/user.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app.use("/user", userRouter);
 
 const CONNECTION_URL =
   "mongodb+srv://dbdevapp:dbdevapp@cluster0.dhsuh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
